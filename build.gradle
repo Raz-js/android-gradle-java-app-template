@@ -131,14 +131,20 @@ tasks.withType(Test).configureEach {
   maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
 }
 
-tasks.configureEach { task ->
-  if (task instanceof JavaForkOptions) {
-    // should improve memory on a 64bit JVM
-    task.jvmArgs("-XX:+UseCompressedOops")
-    // should avoid GradleWorkerMain to steal focus
-    task.jvmArgs("-Djava.awt.headless=true")
-    task.jvmArgs("-Dapple.awt.UIElement=true")
-  }
+tasks.withType(Test).configureEach { task ->
+  // should improve memory on a 64bit JVM
+  task.jvmArgs("-XX:+UseCompressedOops")
+  // should avoid GradleWorkerMain to steal focus
+  task.jvmArgs("-Djava.awt.headless=true")
+  task.jvmArgs("-Dapple.awt.UIElement=true")
+}
+
+tasks.withType(JavaExec).configureEach { task ->
+  // should improve memory on a 64bit JVM
+  task.jvmArgs("-XX:+UseCompressedOops")
+  // should avoid GradleWorkerMain to steal focus
+  task.jvmArgs("-Djava.awt.headless=true")
+  task.jvmArgs("-Dapple.awt.UIElement=true")
 }
 
 def isNonStable = { String version ->
