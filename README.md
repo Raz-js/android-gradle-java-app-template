@@ -1,4 +1,4 @@
-# Android Gradle Java App Template
+# Android Gradle Java App Template 
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![build](https://github.com/jaredsburrows/android-gradle-java-app-template/actions/workflows/build.yml/badge.svg)](https://github.com/jaredsburrows/android-gradle-java-app-template/actions/workflows/build.yml)
