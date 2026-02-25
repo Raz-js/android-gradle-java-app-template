@@ -40,6 +40,15 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
           cache: gradle
 
+      - name: Ensure debug keystore
+        run: |
+          mkdir -p config
+          if [ ! -f config/debug.keystore ]; then
+            keytool -genkeypair -alias androiddebugkey -keypass android -storepass android \
+              -dname "CN=Android Debug,O=Android,C=US" -keystore config/debug.keystore \
+              -storetype JKS -keyalg RSA -validity 10000
+          fi
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
       - run: ./gradlew --version
