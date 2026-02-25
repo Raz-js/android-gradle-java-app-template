@@ -6,6 +6,7 @@
   <!-- Manual upgrades -->
   <issue id="GradleDependency" severity="ignore" />
   <issue id="NewerVersionAvailable" severity="ignore" />
+  <issue id="AndroidGradlePluginVersion" severity="ignore" />
 
   <!-- Ignore indexing through Google APIs -->
   <issue id="GoogleAppIndexingApiWarning" severity="ignore" />
